@@ -1,5 +1,5 @@
-# bigchaindb-benchmark
+# Stress test
 
 RUN:
 
-python3 test.py
+bash control.sh 
