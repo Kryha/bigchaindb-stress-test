@@ -11,10 +11,15 @@ from threading import Thread, Event
 from uuid import uuid4
 import json
 from collections import defaultdict
-import websocket 
+import websocket
 import subprocess
 
-tx_count = input("How many transactions are we testing?: ")
+
+# tx_count = input("How many transactions are we testing? ")
+# size = input("What size? (Multiples of 36 characters) ")
+
+tx_count = sys.argv[1]
+size = sys.argv[2]
 
 NUM_PROCESSES = int(tx_count)
 
@@ -32,14 +37,14 @@ final_transaction = []
 
 
 args = ['node', 'listen.js', tx_count, "&"]
-subprocess.Popen(args) 
+subprocess.Popen(args)
 
 test = False
-size = 1
+
 
 if test == True:
     tokens = {}
-    bdb_root_url = 'https://test.bigchaindb.com'  # Use YOUR BigchainDB Root URL here
+    bdb_root_url = 'https://test.bigchaindb.com' 
     tokens = {'app_id': 'SOMETHING', 'app_key': 'SOMETHINGMORE'}
     bdb = BigchainDB(bdb_root_url, headers=tokens)
 else:
@@ -58,11 +63,11 @@ for x in range(0, z):
                                     },
                                 },
                         })
-            
+
             fulfilled_creation_tx = bdb.transactions.fulfill(
                 prepared_creation_tx,
                 private_keys=alice.private_key
-                
+
             )
             transaction_list['one'].append(fulfilled_creation_tx)
 t0 = time.time()
@@ -79,5 +84,6 @@ for i, child in enumerate(children):
 t1 = time.time()
 
 
-print("Number of transactions: ", tx_count, " and the size of transactions: ", size)
-print("Sent transactions at ", z/(t1-t0), "txs rate")
+print("Number of transactions: a.", tx_count)
+print("and the size of transactions: b.", size)
+print("Txs rate: c.", z/(t1-t0))
