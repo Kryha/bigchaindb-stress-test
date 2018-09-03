@@ -7,7 +7,7 @@ e.g.
 
 send.js generates a transaction payload and sends them to the bdb endpoint using the bdb js driver
 
-listen.js is a simple counter for the time delta between the first and the last transaction
+listen.js is a simple counter for the time delta between the first and the last transaction using the bdb websocket
 
 mongo.js is an experimental test for measuring the time delta using the bgb transaction collection. It uses the change streams api which has been implemented on MongoDB 3.6. It does not run on a standalone databse, so you need to convert to a replica set. Short version:
 
