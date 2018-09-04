@@ -1,5 +1,7 @@
 # Updated sending version
 
+Warning! Transaction number must be multiple of 16, the NUM_PROCESSES, otherwise sending does not work. Will be addressed later.
+
 on the client
 
 run python3 test.py NUMBER_OF_TRANSACTIONS 
