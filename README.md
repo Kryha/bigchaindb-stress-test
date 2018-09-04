@@ -1,3 +1,13 @@
+# Updated sending version
+
+on the client
+
+run python3 test.py NUMBER_OF_TRANSACTIONS 
+
+on the server
+
+run the mongo.js described below
+
 # Stress test
 
 Enter after each file the number of transactions you are testing
